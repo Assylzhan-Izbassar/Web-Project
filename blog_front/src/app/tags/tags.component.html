@@ -1,0 +1,17 @@
+<div>
+  <div *ngIf="tags">
+
+    <ul *ngFor="let tag of tags">
+      <li>
+        <h3>
+          <a
+            [title]="tag.title + ' details'"
+            routerLink="/tags/{{tag.id}}">
+            {{ tag.title }}
+          </a>
+        </h3>
+      </li>
+    </ul>
+
+  </div>
+</div>

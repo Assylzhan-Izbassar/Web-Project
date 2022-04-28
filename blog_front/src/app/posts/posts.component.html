@@ -1,0 +1,22 @@
+<h2>Posts</h2>
+
+<div>
+  <div *ngIf="posts">
+
+    <ul *ngFor="let post of posts">
+      <li>
+        <span>{{post.authorID}}</span>
+        <h3>
+          <a
+            [title]="post.title + ' details'"
+            routerLink="/posts/{{post.id}}">
+            {{ post.title }}
+          </a>
+        </h3>
+        <p>{{post.summary}}</p>
+        <span>{{post.publishedAt}}</span>
+      </li>
+    </ul>
+
+  </div>
+</div>
