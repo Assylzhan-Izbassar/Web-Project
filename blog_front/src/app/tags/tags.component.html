@@ -1,15 +1,13 @@
-<div>
-  <div *ngIf="tags">
+<div class="tags-container">
+  <div class="tags-container-inner" *ngIf="tags">
 
-    <ul *ngFor="let tag of tags">
-      <li>
-        <h3>
-          <a
-            [title]="tag.title + ' details'"
-            routerLink="/tags/{{tag.id}}">
-            {{ tag.title }}
-          </a>
-        </h3>
+    <ul class="tags" *ngFor="let tag of tags">
+      <li class="tag-item">
+        <a
+          [title]="tag.title + ' details'"
+          routerLink="/tags/{{tag.id}}">
+          {{ tag.title }}
+        </a>
       </li>
     </ul>
 

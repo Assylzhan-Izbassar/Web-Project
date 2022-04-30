@@ -1,5 +1,9 @@
 <div *ngIf="loaded" class="container">
 
+  <div>
+    <button type="button" (click)="goBack()">Go Back</button>
+  </div>
+
   <div *ngIf="post">
     <h2>Post Detail #{{post.id}}</h2>
 <!--    <input [(ngModel)]="post.title">-->
@@ -9,12 +13,12 @@
     <span>{{post.createdAt}}</span>
     <p>{{post.content}}</p>
 <!--    <p *ngIf="saving">Updates are saving...</p>-->
+
+    <div>
+      <app-comments [post]="post"></app-comments>
+    </div>
   </div>
 
 </div>
 
 <div *ngIf="!loaded">Data is loading...</div>
-
-<div>
-  <button type="button" (click)="goBack()">Go Back</button>
-</div>

@@ -1,0 +1,18 @@
+.tags-container {
+
+}
+
+.tag-item {
+  list-style: none;
+}
+
+.tag-item a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: cornsilk;
+}
+
+.tag-item a:hover {
+  color: aliceblue;
+  border-bottom: 1px solid aliceblue;
+}

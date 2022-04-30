@@ -1,10 +1,10 @@
 <h2>Posts</h2>
 
-<div>
-  <div *ngIf="posts">
+<div class="posts-container">
+  <div class="posts-container-inner" *ngIf="posts">
 
-    <ul *ngFor="let post of posts">
-      <li>
+    <ul class="posts" *ngFor="let post of posts">
+      <li class="post-item">
         <span>{{post.authorID}}</span>
         <h3>
           <a
