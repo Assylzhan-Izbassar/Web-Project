@@ -1,9 +1,9 @@
-<div>
-  <div *ngIf="comments">
+<div class="comments-container">
+  <div class="comments-container-inner" *ngIf="comments">
 
-    <ul *ngFor="let comment of comments">
+    <ul class="comments" *ngFor="let comment of comments">
       <div *ngIf="post.id===comment.postID">
-        <li>
+        <li class="comment-item">
           <span>{{comment.title}}</span>
           <p>{{comment.content}}</p>
         </li>

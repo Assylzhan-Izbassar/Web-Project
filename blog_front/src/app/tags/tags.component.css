@@ -1,13 +1,12 @@
+h2 {
+  margin-left: 25px;
+}
+
 .tags-container {
 
 }
 
-.tag-item {
-  list-style: none;
-}
-
 .tag-item a {
-  text-decoration: none;
   text-transform: uppercase;
   color: cornsilk;
 }

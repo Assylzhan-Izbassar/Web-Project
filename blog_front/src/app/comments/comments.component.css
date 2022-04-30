@@ -1,0 +1,13 @@
+.comments-container {
+  background-color: coral;
+  margin: 10px;
+}
+
+.comment-item {
+  padding: 10px;
+  background-color: beige;
+}
+
+.comment-item span {
+  font-weight: bolder;
+}

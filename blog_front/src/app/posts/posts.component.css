@@ -1,0 +1,27 @@
+h2 {
+  margin-left: 20px;
+  color: coral;
+}
+
+.post-item a {
+  color: chocolate;
+  font-weight: bold;
+}
+
+.post-item a:hover {
+  color: coral;
+  border-bottom: 1px solid coral;
+}
+
+.post-item span {
+  color: lightcoral;
+}
+
+.post-item-inner {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  width: 120px;
+  line-height: 10px;
+}
+

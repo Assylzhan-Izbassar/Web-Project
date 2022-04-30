@@ -5,16 +5,16 @@
 
     <ul class="posts" *ngFor="let post of posts">
       <li class="post-item">
-        <span>{{post.authorID}}</span>
-        <h3>
+        <div class="post-item-inner">
+          <span>{{post.authorID}}</span>
           <a
             [title]="post.title + ' details'"
             routerLink="/posts/{{post.id}}">
             {{ post.title }}
           </a>
-        </h3>
+        </div>
         <p>{{post.summary}}</p>
-        <span>{{post.publishedAt}}</span>
+        <span>{{post.createdAt}}</span>
       </li>
     </ul>
 
