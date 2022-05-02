@@ -1,11 +1,17 @@
 <div class="container">
   <form>
     <div class="container-inner">
+      <h2>Login</h2>
+
+      <p>Please fill in this form to enter an account.</p>
+
+      <hr>
       <label><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" required [(ngModel)]="username">
 
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required [(ngModel)]="password">
+      <hr>
 
       <button type="submit" (click)="login()">Login</button>
       <label>

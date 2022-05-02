@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,8 @@ export class LoginComponent implements OnInit {
   username?: string;
   password?: string;
 
+  @Output() notifyParent: EventEmitter<any> = new EventEmitter<any>()
+
   constructor() {
   }
 
@@ -18,5 +20,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     // alert(this.username + " " + this.password);
+    this.notifyParent.emit(true);
   }
 }

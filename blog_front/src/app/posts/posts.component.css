@@ -29,3 +29,7 @@
   line-height: 10px;
 }
 
+.container-title {
+  display: flex;
+  justify-content: space-between;
+}

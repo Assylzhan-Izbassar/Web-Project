@@ -4,16 +4,16 @@ import { PostsComponent } from "./posts/posts.component";
 import { PostDetailComponent } from "./post-detail/post-detail.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {AboutComponent} from "./about/about.component";
-import {HomeComponent} from "./home/home.component";
 import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
   { path: 'posts/:id', component: PostDetailComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '**', component: NotFoundComponent}
 ];
 

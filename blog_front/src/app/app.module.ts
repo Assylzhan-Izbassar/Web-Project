@@ -7,11 +7,11 @@ import { PostsComponent } from './posts/posts.component';
 import { TagsComponent } from './tags/tags.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import {FormsModule} from "@angular/forms";
-import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { CommentsComponent } from './comments/comments.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +19,11 @@ import { LoginComponent } from './login/login.component';
     PostsComponent,
     TagsComponent,
     PostDetailComponent,
-    HomeComponent,
     NotFoundComponent,
     AboutComponent,
     CommentsComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
     imports: [
         BrowserModule,

@@ -9,5 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'blog_front';
 
-  logged?: boolean;
+  logged = true;
+
+  logout() {
+    this.logged = false;
+    // window.location.reload()
+  }
+
+  getNotification(value: boolean) {
+    this.logged = value;
+  }
 }
