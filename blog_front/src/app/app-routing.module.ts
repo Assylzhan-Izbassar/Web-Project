@@ -5,6 +5,7 @@ import { PostDetailComponent } from "./post-detail/post-detail.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {AboutComponent} from "./about/about.component";
 import {HomeComponent} from "./home/home.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'posts', component: PostsComponent },
   { path: 'posts/:id', component: PostDetailComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent}
 ];
 
