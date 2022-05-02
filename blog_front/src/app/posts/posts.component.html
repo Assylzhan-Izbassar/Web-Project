@@ -1,7 +1,44 @@
 <div class="container">
   <div class="container-title">
     <h2>Posts</h2>
-    <button>Create post</button>
+    <button (click)="openModal()" style="width:auto;">Create post</button>
+  </div>
+
+  <div id="post-create" class="modal">
+    <form class="modal-content animate">
+      <div class="inner-container">
+        <span (click)="cancel()" class="close" title="Close Modal">
+          &times;
+        </span>
+      </div>
+
+      <div class="container">
+        <label class="post-title"><b>Title</b></label>
+        <input class="text-input"
+               type="text"
+               placeholder="Enter a title"
+               name="title"
+               [(ngModel)]="title"
+               required>
+
+        <label><b>Post</b></label>
+        <br>
+        <textarea rows="5"
+                  cols="60"
+                  [(ngModel)]="content"
+                  placeholder="Enter a post here...">
+         </textarea>
+        <br>
+
+        <button type="submit" (click)="savePost()">Save</button>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" (click)="cancel()" class="cancel-btn">
+          Cancel
+        </button>
+      </div>
+    </form>
   </div>
 
   <div class="posts-container-inner" *ngIf="posts">

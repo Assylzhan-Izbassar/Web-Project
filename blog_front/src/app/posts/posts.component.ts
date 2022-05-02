@@ -10,7 +10,12 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class PostsComponent implements OnInit {
 
+  // The list of posts
   posts?: Post[];
+
+  // Data that needed to create post
+  title?: string;
+  content?: string;
 
   constructor(private route: ActivatedRoute,
               private postService: PostService) { }
@@ -27,5 +32,21 @@ export class PostsComponent implements OnInit {
       const id = Number(this.route.snapshot.paramMap.get('userID'));
       this.posts = this.postService.getUserPosts(id);
     }
+  }
+
+  openModal() {
+    if(document.getElementById('post-create') !== null) {
+      document.getElementById('post-create')!.style.display='block';
+    }
+  }
+
+  cancel() {
+    if(document.getElementById('post-create') !== null) {
+      document.getElementById('post-create')!.style.display='none';
+    }
+  }
+
+  savePost() {
+    this.cancel();
   }
 }

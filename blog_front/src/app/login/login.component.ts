@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -10,16 +11,14 @@ export class LoginComponent implements OnInit {
   username?: string;
   password?: string;
 
-  @Output() notifyParent: EventEmitter<any> = new EventEmitter<any>()
-
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
   }
 
   login() {
-    // alert(this.username + " " + this.password);
-    this.notifyParent.emit(true);
+    this.authService.set(true);
+    console.log(this.authService.get());
   }
 }

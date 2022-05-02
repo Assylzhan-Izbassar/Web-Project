@@ -5,9 +5,7 @@
 
     <ul class="tags" *ngFor="let tag of tags">
       <li class="tag-item">
-        <a
-          [title]="tag.title + ' details'"
-          routerLink="/tags/{{tag.id}}">
+        <a [title]="tag.title + ' details'" routerLink="/tags/{{tag.id}}">
           {{ tag.title }}
         </a>
       </li>
