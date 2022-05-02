@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Post, posts } from "../models/post";
+import { PostService } from "../services/post.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-posts',
@@ -9,18 +11,21 @@ import { Post, posts } from "../models/post";
 export class PostsComponent implements OnInit {
 
   posts?: Post[];
-  loaded?: boolean;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+              private postService: PostService) { }
 
   ngOnInit(): void {
     this.getPosts();
   }
 
   getPosts() {
-    this.loaded = false;
 
-    this.posts = posts;
+    if(this.route.snapshot.paramMap.get('userID') == null) {
+      this.posts = this.postService.get();
+    } else {
+      const id = Number(this.route.snapshot.paramMap.get('userID'));
+      this.posts = this.postService.getUserPosts(id);
+    }
   }
-
 }

@@ -1,0 +1,42 @@
+/* Navigation */
+.logo {
+  margin: 20px 0 20px 0;
+}
+.nav-list {
+  display: grid;
+  background-color: antiquewhite;
+  line-height: 40px;
+  grid-template-columns: 10% 74% 26%;
+}
+
+.nav-list h2 {
+  margin-left: 20px;
+  color: lightcoral;
+}
+
+.nav-list-main, .nav-list-log {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-list-main {
+  width: 100px;
+}
+.nav-list-log {
+  width: 200px;
+}
+
+.nav-list-main li, .nav-list-log li{
+  list-style: none;
+  line-height: 50px;
+}
+
+.nav-list-main li a, .nav-list-log li a {
+  color: coral;
+  text-decoration: none;
+}
+
+.nav-list-main li a:hover, .nav-list-log li a:hover {
+  color: lightcoral;
+  border-bottom: 1px solid lightcoral;
+}

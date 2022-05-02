@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {posts} from "./models/post";
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,4 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'blog_front';
-
-  logged = true;
-
-  logout() {
-    this.logged = false;
-    // window.location.reload()
-  }
-
-  getNotification(value: boolean) {
-    this.logged = value;
-  }
 }

@@ -10,6 +10,7 @@ import {RegisterComponent} from "./register/register.component";
 const routes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
+  { path: ':userID/posts', component: PostsComponent },
   { path: 'posts/:id', component: PostDetailComponent },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },

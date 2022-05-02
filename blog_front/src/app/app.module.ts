@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { CommentsComponent } from './comments/comments.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegisterComponent } from './register/register.component';
     AboutComponent,
     CommentsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TopBarComponent
   ],
     imports: [
         BrowserModule,
