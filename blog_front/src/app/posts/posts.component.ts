@@ -1,8 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { Post, posts } from "../models/post";
+import { Component, OnInit } from '@angular/core';
+import { Post } from "../models/post";
 import { PostService } from "../services/post.service";
 import { ActivatedRoute } from "@angular/router";
-import {AuthService} from "../services/auth.service";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-posts',

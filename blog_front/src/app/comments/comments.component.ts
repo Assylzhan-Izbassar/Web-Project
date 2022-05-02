@@ -1,6 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { Comment, comments} from "../models/comment";
-import {Post} from "../models/post";
+import { Comment } from "../models/comment";
+import { Post } from "../models/post";
+import { CommentService } from "../services/comment.service";
 
 @Component({
   selector: 'app-comments',
@@ -13,7 +14,7 @@ export class CommentsComponent implements OnInit {
   @Input() post!: Post;
   loaded?: boolean;
 
-  constructor() { }
+  constructor(private commentService: CommentService) { }
 
   ngOnInit(): void {
     this.getComments();
@@ -22,7 +23,7 @@ export class CommentsComponent implements OnInit {
   getComments() {
     this.loaded = false;
 
-    this.comments = comments;
+    this.comments = this.commentService.get();
 
     this.loaded = true;
   }

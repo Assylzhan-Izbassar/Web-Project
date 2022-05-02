@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
 import { TagsComponent } from './tags/tags.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
 import { CommentsComponent } from './comments/comments.component';

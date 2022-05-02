@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PostsComponent } from "./posts/posts.component";
 import { PostDetailComponent } from "./post-detail/post-detail.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
-import {AboutComponent} from "./about/about.component";
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
+import { AboutComponent } from "./about/about.component";
+import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },

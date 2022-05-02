@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {posts} from "./models/post";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
