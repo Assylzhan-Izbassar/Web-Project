@@ -5,9 +5,15 @@
     <li><a routerLink="posts">Posts</a></li>
     <li><a routerLink="about">About</a></li>
   </ul>
-  <ul class="nav-list-log">
+
+  <ul *ngIf="!logged" class="nav-list-log">
     <li><a routerLink="login">Login</a></li>
     <li><a routerLink="register">Register</a></li>
+  </ul>
+
+  <ul *ngIf="logged" class="nav-list-log">
+    <li><a routerLink="">Saved</a></li>
+    <li><a>Log out</a></li>
   </ul>
 </nav>
 
