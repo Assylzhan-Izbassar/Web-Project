@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Post, posts } from "../models/post";
 import { PostService } from "../services/post.service";
 import { ActivatedRoute } from "@angular/router";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-posts',
@@ -17,14 +18,20 @@ export class PostsComponent implements OnInit {
   title?: string;
   content?: string;
 
+  // For checking login
+  logged?: boolean
+
   constructor(private route: ActivatedRoute,
-              private postService: PostService) { }
+              private postService: PostService,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getPosts();
   }
 
   getPosts() {
+
+    this.logged = this.authService.get();
 
     if(this.route.snapshot.paramMap.get('userID') == null) {
       this.posts = this.postService.get();
