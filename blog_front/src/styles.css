@@ -3,6 +3,10 @@
   font-family: Helvetica sans-serif;
 }
 
+ul {
+  padding-inline-start: 0px;
+}
+
 li {
   list-style: none;
 }
@@ -10,3 +14,13 @@ li {
 a {
   text-decoration: none;
 }
+
+h2 {
+  color: coral;
+  margin: 0;
+}
+
+.container {
+  padding: 20px;
+}
+

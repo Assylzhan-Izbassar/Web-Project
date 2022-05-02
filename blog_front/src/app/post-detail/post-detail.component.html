@@ -1,4 +1,4 @@
-<div class="post-detail-container" *ngIf="loaded">
+<div class="container" *ngIf="loaded">
 
   <div>
     <button type="button" (click)="goBack()">Go Back</button>
@@ -10,7 +10,7 @@
 <!--    <button class="btn success" type="button" (click)="updateTitle(album!)">Save</button>-->
     <h3>{{post.title}}</h3>
     <span>{{post.authorID}}</span>
-    <span>{{post.createdAt}}</span>
+    <span>{{post.createdAt.substring(0,21)}}</span>
     <p>{{post.content}}</p>
 <!--    <p *ngIf="saving">Updates are saving...</p>-->
 

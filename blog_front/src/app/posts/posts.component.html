@@ -1,6 +1,6 @@
-<h2>Posts</h2>
+<div class="container">
+  <h2>Posts</h2>
 
-<div class="posts-container">
   <div class="posts-container-inner" *ngIf="posts">
 
     <ul class="posts" *ngFor="let post of posts">
@@ -14,7 +14,7 @@
           </a>
         </div>
         <p>{{post.summary}}</p>
-        <span>{{post.createdAt}}</span>
+        <span>{{post.createdAt.substring(0,21)}}</span>
       </li>
     </ul>
 
