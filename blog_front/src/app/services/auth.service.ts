@@ -27,7 +27,7 @@ export class AuthService {
 
   login(username: string, password: string) {
     console.log(username, password);
-    return this.http.post<any>(`${environment.apiUrl}/user/authenticate`, { username, password })
+    return this.http.post<any>(`${environment.apiUrl}/api/login/`, { username, password })
       .pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);

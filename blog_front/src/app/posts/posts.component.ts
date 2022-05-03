@@ -29,15 +29,9 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
-
-    console.log(this.userService.getAll());
-    // console.log(this.authService.currentUser);
   }
 
   getPosts() {
-
-    // this.logged = this.authService.get();
-
     if(this.route.snapshot.paramMap.get('userID') == null) {
       this.posts = this.postService.get();
     } else {

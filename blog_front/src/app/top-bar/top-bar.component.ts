@@ -17,6 +17,7 @@ export class TopBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.currentUser)
   }
 
   logout() {
