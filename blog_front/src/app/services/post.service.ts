@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
-import {Post, posts} from "../models/post";
+import { Post } from "../models/post";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  items: Post[] = posts;
+  items: Post[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   add(post: Post) {
     this.items.push(post);
   }
 
-  get(): Post[]{
-    return this.items;
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(`${environment.apiUrl}/api/posts/`);
+  }
+
+  getPost(id: number): Observable<Post> {
+    return this.http.get<Post>(`${environment.apiUrl}/api/posts/${id}/`);
   }
 
   getUserPosts(id: number) {
       return this.items.filter((x) => x.authorID === id);
-  }
-
-  getPost(id: number) {
-    return this.items.find((x) => x.id === id);
   }
 
   delete(id: number) {

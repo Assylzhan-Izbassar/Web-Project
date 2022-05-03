@@ -2,7 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics, permissions, mixins
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from api.serializers import RegisterSerializer, UserSerializer
+from api.serializers import RegisterSerializer, UserSerializer, PostSerializer
+from ..models import Post
 from django.contrib.auth.models import User
 
 
@@ -19,6 +20,10 @@ class RegisterAPIView(generics.GenericAPIView):
       "user": UserSerializer(user, context=self.get_serializer_context()).data,
       "message": "User Created Successfully.  Now perform Login to get your token"
     })
+
+class PostDetails(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Post.objects.all()
+  serializer_class = PostSerializer
 
 @api_view(['GET'])
 def current_user(request):

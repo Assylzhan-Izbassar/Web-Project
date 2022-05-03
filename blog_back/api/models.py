@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Post(models.Model):
   author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
@@ -25,6 +26,7 @@ class Post(models.Model):
       'content': self.content
     }
 
+
 class Tag(models.Model):
   title = models.CharField(max_length=100)
   content = models.CharField(max_length=200)
@@ -40,6 +42,7 @@ class Tag(models.Model):
       'content': self.content
     }
 
+
 class PostTag(models.Model):
   post = models.ForeignKey(Post, on_delete=models.DO_NOTHING)
   tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
@@ -50,6 +53,7 @@ class PostTag(models.Model):
       'post_id': self.post.id,
       'tag_id': self.tag.id
     }
+
 
 class Comment(models.Model):
   title = models.CharField(max_length=100)

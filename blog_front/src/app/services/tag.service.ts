@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Tag, tags } from "../models/tag";
+import { Tag } from "../models/tag";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TagService {
 
-  tags: Tag[] = tags
+  tags: Tag[] = []
 
   constructor() { }
 

@@ -33,7 +33,9 @@ export class PostsComponent implements OnInit {
 
   getPosts() {
     if(this.route.snapshot.paramMap.get('userID') == null) {
-      this.posts = this.postService.get();
+      this.postService.getPosts().subscribe(data => {
+        this.posts = data;
+      });
     } else {
       const id = Number(this.route.snapshot.paramMap.get('userID'));
       this.posts = this.postService.getUserPosts(id);
