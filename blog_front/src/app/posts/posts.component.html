@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container-title">
     <h2>Posts</h2>
-    <button *ngIf="logged" (click)="openModal()" style="width:auto;">Create post</button>
+    <button (click)="openModal()" style="width:auto;">Create post</button>
   </div>
 
   <div id="post-create" class="modal">
@@ -19,14 +19,16 @@
                placeholder="Enter a title"
                name="title"
                [(ngModel)]="title"
-               required>
+               required
+               [ngModelOptions]="{standalone: true}">
 
         <label><b>Post</b></label>
         <br>
         <textarea rows="5"
                   cols="60"
                   [(ngModel)]="content"
-                  placeholder="Enter a post here...">
+                  placeholder="Enter a post here..."
+                  [ngModelOptions]="{standalone: true}">
          </textarea>
         <br>
 
