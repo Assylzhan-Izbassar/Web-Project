@@ -1,6 +1,7 @@
 .comments-container {
-  background-color: coral;
+  background-color: rgb(255, 255, 255);
   margin: 10px;
+  border: 1px solid rgb(5, 174, 253);
 }
 
 .comment-item {

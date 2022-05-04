@@ -21,8 +21,9 @@ export class TagsComponent implements OnInit {
   getTags() {
     this.loaded = false;
 
-    this.tags = this.tagService.get();
-
-    this.loaded = true;
+    this.tagService.getTags().subscribe(data => {
+      this.loaded = true;
+      this.tags = data;
+    });
   }
 }

@@ -23,9 +23,10 @@ export class CommentsComponent implements OnInit {
   getComments() {
     this.loaded = false;
 
-    this.comments = this.commentService.get();
-
-    this.loaded = true;
+    this.commentService.getComments(this.post.id).subscribe(data => {
+      this.comments = data;
+      this.loaded = true;
+    })
   }
 
 }

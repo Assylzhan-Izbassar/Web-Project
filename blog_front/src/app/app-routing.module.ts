@@ -11,7 +11,7 @@ import { AuthGuard } from './helpers/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'posts', pathMatch: 'full' },
   { path: 'posts', component: PostsComponent },
-  { path: ':userID/posts', component: PostsComponent },
+  { path: ':user_id/posts', component: PostsComponent },
   { path: 'posts/:id', component: PostDetailComponent },
   { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },

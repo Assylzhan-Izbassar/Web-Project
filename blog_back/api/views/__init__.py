@@ -1,2 +1,2 @@
-from .views import RegisterAPIView, current_user, PostDetails
-from .views_fbv import post_list, post_detail
+from .views_cbv import RegisterAPIView, PostListAPIView, PostDetailAPIView
+from .views_fbv import tag_list, tag_detail, comment_list, post_comments, current_user

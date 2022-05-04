@@ -1,20 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Post } from "../models/post";
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {environment} from "../../environments/environment";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { environment } from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  items: Post[] = [];
-
   constructor(private http: HttpClient) { }
 
-  add(post: Post) {
-    this.items.push(post);
+  currentTime(): string {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
+    let yyyy = today.getFullYear();
+    let hours = today.getHours();
+    let min = today.getMinutes();
+
+    return yyyy + '-' + mm + '-' + dd + 'T' + hours + ':' + min;
+  }
+
+  createPost(title: string, content: string , user_id: number){
+    return this.http.post<any>(`${environment.apiUrl}/api/posts/`, {
+      "author_id": user_id,
+      "title": title,
+      "summary": content.substring(0, 30),
+      "createdAt": this.currentTime(),
+      "content": content
+    });
   }
 
   getPosts(): Observable<Post[]> {
@@ -26,10 +41,10 @@ export class PostService {
   }
 
   getUserPosts(id: number) {
-      return this.items.filter((x) => x.authorID === id);
+      // return this.items.filter((x) => x.authorID === id);
   }
 
   delete(id: number) {
-    this.items.splice(id, 1);
+    // this.items.splice(id, 1);
   }
 }

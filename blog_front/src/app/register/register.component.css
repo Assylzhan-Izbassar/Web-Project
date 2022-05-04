@@ -3,7 +3,20 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: block;
-  border: 1px solid coral;
+  border: 1px solid rgb(5, 174, 253);
   border-radius: 5px;
   box-sizing: border-box;
+}
+.container-inner button{
+  background-color: rgb(5, 174, 253);
+  color: white;
+  border: 1px solid rgb(5, 174, 253);
+  margin-right: 20px;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 20px;
+}
+hr{
+  background-color: rgb(5, 174, 253);
+  
 }

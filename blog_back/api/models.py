@@ -7,8 +7,8 @@ class Post(models.Model):
   author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
   title = models.CharField(max_length=300)
   summary = models.CharField(max_length=500)
-  createdAt = models.DateField()
-  updatedAt = models.DateField()
+  createdAt = models.DateTimeField()
+  updatedAt = models.DateTimeField(null=True)
   content = models.CharField(max_length=700)
 
   class Meta:

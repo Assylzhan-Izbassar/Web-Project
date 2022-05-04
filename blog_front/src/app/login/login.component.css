@@ -3,19 +3,19 @@ input[type=text], input[type=password] {
   padding: 12px 20px;
   margin: 8px 0;
   display: block;
-  border: 1px solid coral;
+  border: 1px solid rgb(5, 174, 253) ;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
-button {
-  background-color: #04AA6D;
+button{
+  background-color: rgb(5, 174, 253);
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
+  border: 1px solid rgb(5, 174, 253);
+  margin-right: 20px;
   border-radius: 5px;
-  cursor: pointer;
+  height: 40px;
+  font-size: 20px;
 }
 
 button:hover {

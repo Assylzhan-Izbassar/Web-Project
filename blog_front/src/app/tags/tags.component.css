@@ -1,10 +1,11 @@
 h2 {
-  color: aliceblue;
+  color:rgb(5, 174, 253);
+  text-align: center;
 }
 
 .tag-item a {
   text-transform: uppercase;
-  color: cornsilk;
+  color: rgb(5, 174, 253);
 }
 
 .tag-item a:hover {

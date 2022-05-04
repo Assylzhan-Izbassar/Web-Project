@@ -4,7 +4,7 @@
   <div class="comments-container-inner" *ngIf="comments">
 
     <ul class="comments" *ngFor="let comment of comments">
-      <div *ngIf="post.id===comment.postID">
+      <div>
         <li class="comment-item">
           <span>{{comment.title}}</span>
           <p>{{comment.content}}</p>

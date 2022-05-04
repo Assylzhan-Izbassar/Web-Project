@@ -3,7 +3,8 @@ import { Post } from "../models/post";
 import { PostService } from "../services/post.service";
 import { ActivatedRoute } from "@angular/router";
 import { AuthService } from "../services/auth.service";
-import {UserService} from "../services/user.service";
+import { UserService } from "../services/user.service";
+import { User } from "../models/user";
 
 @Component({
   selector: 'app-posts',
@@ -14,6 +15,7 @@ export class PostsComponent implements OnInit {
 
   // The list of posts
   posts?: Post[];
+  currentUser?: User;
 
   // Data that needed to create post
   title?: string;
@@ -25,20 +27,28 @@ export class PostsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private postService: PostService,
               private authService: AuthService,
-              private userService: UserService) { }
+              private userService: UserService) {
+  }
 
   ngOnInit(): void {
     this.getPosts();
+    this.getUser();
+  }
+
+  getUser() {
+    this.userService.getUser().subscribe(data => {
+      this.currentUser = data;
+    });
   }
 
   getPosts() {
-    if(this.route.snapshot.paramMap.get('userID') == null) {
+    if(this.route.snapshot.paramMap.get('user_id') == null) {
       this.postService.getPosts().subscribe(data => {
         this.posts = data;
       });
     } else {
-      const id = Number(this.route.snapshot.paramMap.get('userID'));
-      this.posts = this.postService.getUserPosts(id);
+      const id = Number(this.route.snapshot.paramMap.get('user_id'));
+      // this.posts = this.postService.getUserPosts(id);
     }
   }
 
@@ -56,5 +66,6 @@ export class PostsComponent implements OnInit {
 
   savePost() {
     this.cancel();
+    this.postService.createPost(this.title!, this.content!, this.currentUser!.id);
   }
 }

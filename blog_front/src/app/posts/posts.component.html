@@ -47,16 +47,21 @@
 
     <ul class="posts" *ngFor="let post of posts">
       <li class="post-item">
-        <div class="post-item-inner">
-          <span>{{post.authorID}}</span>
-          <a
-            [title]="post.title + ' details'"
-            routerLink="/posts/{{post.id}}">
-            {{ post.title }}
-          </a>
+
+        <div class="post-title">
+<!--          <div>{{currentUser.first_name}}</div>-->
+          <div>
+            <a
+              [title]="post.title + ' details'"
+              routerLink="/posts/{{post.id}}">
+              {{ post.title }}
+            </a>
+          </div>
         </div>
+
         <p>{{post.summary}}</p>
-        <span>{{post.createdAt.substring(0,21)}}</span>
+        <span>{{post.createdAt}}</span>
+
       </li>
     </ul>
 

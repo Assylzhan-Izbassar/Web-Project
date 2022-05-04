@@ -3,12 +3,12 @@
 }
 
 .post-item {
-  border: 2px solid lightcoral;
+  border: 2px solid rgb(5, 174, 253);
   padding: 10px;
 }
 
 .post-item a {
-  color: chocolate;
+  color: rgb(5, 174, 253);
   font-weight: bold;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .post-item span {
-  color: lightcoral;
+  color: rgb(5, 174, 253);
 }
 
 .post-item-inner {
@@ -33,6 +33,7 @@
   display: flex;
   line-height: 50px;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* General style of create window */
@@ -48,14 +49,15 @@ input[type=text], textarea{
 }
 
 /* Set a style for all buttons */
-button {
-  background-color: #04AA6D;
+button{
+  background-color: rgb(5, 174, 253);
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
+  border: 1px solid rgb(5, 174, 253);
+  margin-right: 20px;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: center;
+
 }
 
 button:hover {

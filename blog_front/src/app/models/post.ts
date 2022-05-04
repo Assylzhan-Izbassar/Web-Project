@@ -1,9 +1,9 @@
 export interface Post {
   id: number;
-  authorID: number;
+  author_id: number;
   title: string;
   summary: string;
-  createdAt: string;
+  createdAt: Date;
   updatedAt?: string;
   content: string;
 }

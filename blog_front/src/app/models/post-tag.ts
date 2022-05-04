@@ -1,4 +1,4 @@
 export interface PostTag {
-  postID: number;
-  tagID: number;
+  post_id: number;
+  tag_id: number;
 }
