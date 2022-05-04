@@ -1,5 +1,5 @@
 from ..models import Tag, Comment, Post
-from ..serializers import TagSerializer, CommentSerializer, UserSerializer
+from ..serializers import TagSerializer, CommentSerializer, UserSerializer, PostSerializer
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -38,11 +38,18 @@ def post_comments(request, post_id):
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+
+@api_view(['GET'])
 def user_posts(request, user_id):
   try:
     post = Post.objects.filter(author_id=user_id).order_by('createdAt')
   except Post.DoesNotExist as e:
     return Response({'message': str(e)}, status=400)
+
+  if request.method == 'GET':
+    serializer = PostSerializer(post, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 @api_view(['GET', 'POST'])
 def tag_list(request):

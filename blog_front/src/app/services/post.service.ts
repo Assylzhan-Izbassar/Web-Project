@@ -41,8 +41,9 @@ export class PostService {
   }
 
   getUserPosts(id: number) {
-      // return this.items.filter((x) => x.authorID === id);
+    return this.http.get<Post[]>(`${environment.apiUrl}/api/user/${id}/posts/`);
   }
+
 
   delete(id: number) {
     // this.items.splice(id, 1);

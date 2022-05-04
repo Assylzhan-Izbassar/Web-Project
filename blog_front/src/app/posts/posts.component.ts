@@ -32,13 +32,6 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPosts();
-    this.getUser();
-  }
-
-  getUser() {
-    this.userService.getUser().subscribe(data => {
-      this.currentUser = data;
-    });
   }
 
   getPosts() {
@@ -48,7 +41,9 @@ export class PostsComponent implements OnInit {
       });
     } else {
       const id = Number(this.route.snapshot.paramMap.get('user_id'));
-      // this.posts = this.postService.getUserPosts(id);
+      this.postService.getUserPosts(id).subscribe(data => {
+        this.posts = data;
+      })
     }
   }
 
@@ -66,6 +61,10 @@ export class PostsComponent implements OnInit {
 
   savePost() {
     this.cancel();
-    this.postService.createPost(this.title!, this.content!, this.currentUser!.id);
+    this.userService.getUser().subscribe(user => {
+      this.postService.createPost(this.title!, this.content!, user.id).subscribe(data => {
+        console.log(data);
+      })
+    });
   }
 }
