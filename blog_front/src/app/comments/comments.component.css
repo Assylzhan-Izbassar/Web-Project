@@ -1,0 +1,14 @@
+.comments-container {
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  border: 1px solid rgb(5, 174, 253);
+}
+
+.comment-item {
+  padding: 10px;
+  background-color: beige;
+}
+
+.comment-item span {
+  font-weight: bolder;
+}

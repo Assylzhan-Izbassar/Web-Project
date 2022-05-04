@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+ul {
+  padding-inline-start: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  color: rgb(5, 174, 253);
+  margin: 0;
+}
+
+.container {
+  padding: 20px;
+}
+

@@ -1,0 +1,14 @@
+h2 {
+  color:rgb(5, 174, 253);
+  text-align: center;
+}
+
+.tag-item a {
+  text-transform: uppercase;
+  color: rgb(5, 174, 253);
+}
+
+.tag-item a:hover {
+  color: aliceblue;
+  border-bottom: 1px solid aliceblue;
+}

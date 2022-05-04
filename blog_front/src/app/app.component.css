@@ -1,0 +1,15 @@
+/* Content side */
+.content {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  margin-top: 10px;
+}
+
+.main-content {
+  border: 1px solid rgb(5, 174, 253);
+}
+
+app-tags {
+  border: 1px solid rgb(5, 174, 253);
+  margin-left: 10px;
+}

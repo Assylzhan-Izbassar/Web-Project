@@ -1,0 +1,26 @@
+<div class="container" *ngIf="loaded">
+
+  <div>
+    <button type="button" (click)="goBack()">Go Back</button>
+  </div>
+
+  <br>
+
+  <div *ngIf="post">
+    <h2>Post Detail #{{post.id}}</h2>
+<!--    <input [(ngModel)]="post.title">-->
+<!--    <button class="btn success" type="button" (click)="updateTitle(album!)">Save</button>-->
+    <h3>{{post.title}}</h3>
+    <span>{{post.authorID}}</span>
+    <span>{{post.createdAt.substring(0,21)}}</span>
+    <p>{{post.content}}</p>
+<!--    <p *ngIf="saving">Updates are saving...</p>-->
+
+    <div>
+      <app-comments [post]="post"></app-comments>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!loaded">Data is loading...</div>
