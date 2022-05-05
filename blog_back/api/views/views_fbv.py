@@ -1,7 +1,9 @@
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+
 from ..models import Tag, Comment, Post
 from ..serializers import TagSerializer, CommentSerializer, UserSerializer, PostSerializer
 
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -13,6 +15,7 @@ def current_user(request):
   return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def comment_list(request):
   if request.method == 'GET':
     comments = Comment.objects.all()
@@ -40,6 +43,7 @@ def post_comments(request, post_id):
 
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def user_posts(request, user_id):
   try:
     post = Post.objects.filter(author_id=user_id).order_by('createdAt')
@@ -52,6 +56,7 @@ def user_posts(request, user_id):
 
 
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def tag_list(request):
   if request.method == 'GET':
     tags = Tag.objects.all()
@@ -67,6 +72,7 @@ def tag_list(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticatedOrReadOnly])
 def tag_detail(request, tag_id):
   try:
     tag = Tag.objects.get(id=tag_id)
