@@ -57,7 +57,7 @@ class PostTag(models.Model):
 
 class Comment(models.Model):
   title = models.CharField(max_length=100)
-  publishedAt = models.DateField()
+  publishedAt = models.DateTimeField()
   content = models.CharField(max_length=400)
   post = models.ForeignKey(Post, on_delete=models.DO_NOTHING)
 

@@ -5,7 +5,7 @@
   justify-content: space-between;
   background-color: rgb(255, 255, 255);
   border-bottom: 2px solid rgb(229, 229, 229);
-  box-shadow: inset 4.8em 1em rgb(5, 174, 253);
+  box-shadow: inset 3.8em 1em rgb(5, 174, 253);
   box-sizing: border-box;
   height: 90px;
 }

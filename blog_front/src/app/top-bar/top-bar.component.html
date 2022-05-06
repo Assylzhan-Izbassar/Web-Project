@@ -1,20 +1,20 @@
 <nav class="nav-list">
   <a [routerLink]="['/']">
-    <h2 class="logo">My Blog</h2>
+    <h2 class="logo"><b>My</b> Blog</h2>
   </a>
 
-  <ul class="nav-list-main">
-    <li><a routerLink="posts">Posts</a></li>
-    <li><a routerLink="about">About</a></li>
-  </ul>
+  <div class="nav-list-main">
+    <a routerLink="posts">Posts</a>
+    <a routerLink="about">About</a>
+  </div>
 
-  <ul *ngIf="!currentUser" class="nav-list-log two-items">
-    <li><a routerLink="login">Login</a></li>
-    <li><a routerLink="register">Register</a></li>
-  </ul>
+  <div *ngIf="isCurrentUser===null" class="nav-list-log two-items">
+    <a routerLink="login"><button>Login</button></a>
+    <a routerLink="register"><button>Register</button></a>
+  </div>
 
-  <ul *ngIf="currentUser" class="nav-list-log">
-    <li><a routerLink="/{{user_id}}/posts" (click)="getUser()">My Posts</a></li>
-    <li><a (click)="logout()">Log out</a></li>
-  </ul>
+  <div *ngIf="isCurrentUser!==null" class="nav-list-log">
+    <li><a routerLink="/4/posts">My Posts</a></li>
+    <a (click)="logout()">Log out</a>
+  </div>
 </nav>

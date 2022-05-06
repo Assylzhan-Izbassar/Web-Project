@@ -3,6 +3,8 @@ import { AuthService } from "../services/auth.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import { first } from 'rxjs/operators';
+import {User} from "../models/user";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private router: Router,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private userService: UserService) {
     if (this.authService.currentUserValue) {
       this.router.navigate(['/']).then();
     }

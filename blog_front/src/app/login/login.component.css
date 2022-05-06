@@ -21,3 +21,7 @@ button{
 button:hover {
   opacity: 0.8;
 }
+hr{
+  background-color:rgb(5, 174, 253);
+  border-color: rgb(5, 174, 253);
+}

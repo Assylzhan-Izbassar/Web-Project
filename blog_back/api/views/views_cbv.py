@@ -27,18 +27,12 @@ class PostListAPIView(mixins.ListModelMixin,
                       generics.GenericAPIView):
   queryset = Post.objects.all()
   serializer_class = PostSerializer
-
-  codename = None
+  permission_classes = [IsAuthenticatedOrReadOnly,]
 
   def get(self, request, *args, **kwargs):
     return self.list(request, *args, **kwargs)
 
   def post(self, request, *args, **kwargs):
-    permission = Permission.objects.get(codename=self.codename)
-    if permission not in request.user.user_permissions.all():
-      return Response(status=403, data = {
-        "error": "not authorized to add"
-      })
     return self.create(request, *args, **kwargs)
 
 

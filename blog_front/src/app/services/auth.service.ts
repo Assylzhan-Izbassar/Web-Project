@@ -5,6 +5,7 @@ import { map } from "rxjs/operators";
 
 import { User } from "../models/user";
 import { environment } from "../../environments/environment";
+import {UserService} from "./user.service";
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +37,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('data');
     this.currentUserSubject.next(null!);
-  }
-
-  set(val: boolean) {
-    this.logged = val;
   }
 }

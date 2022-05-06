@@ -9,7 +9,8 @@ import { environment } from "../../environments/environment";
 })
 export class TagService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getTags(): Observable<Tag[]>{
     return this.http.get<Tag[]>(`${environment.apiUrl}/api/tags/`)

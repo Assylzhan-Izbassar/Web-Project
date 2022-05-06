@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container-title">
     <h2>Posts</h2>
-    <button (click)="openModal()" style="width:auto;">Create post</button>
+    <button *ngIf="currentUser" (click)="openModal()" style="width:auto;">Create post</button>
   </div>
 
   <div id="post-create" class="modal">
@@ -32,6 +32,14 @@
          </textarea>
         <br>
 
+        <div>
+          <select *ngFor="let tag of tags">
+            <option>{{tag.title}}</option>
+          </select>
+        </div>
+
+        <br>
+
         <button type="submit" (click)="savePost()">Save</button>
       </div>
 
@@ -47,21 +55,19 @@
 
     <ul class="posts" *ngFor="let post of posts">
       <li class="post-item">
-
         <div class="post-title">
-<!--          <div>{{currentUser.first_name}}</div>-->
           <div>
             <a
               [title]="post.title + ' details'"
               routerLink="/posts/{{post.id}}">
               {{ post.title }}
             </a>
+            <button *ngIf="myPosts" (click)="delete(post.id)">Delete</button>
           </div>
         </div>
 
         <p>{{post.summary}}</p>
         <span>{{post.createdAt}}</span>
-
       </li>
     </ul>
 

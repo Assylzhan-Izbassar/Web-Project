@@ -1,6 +1,22 @@
 <h3>Comments</h3>
 
-<div class="comments-container">
+<div>
+  <form>
+    <div class="container">
+      <div class="comment-title">
+        <label class="post-title"><b>Title</b></label>
+        <input class="text-input" type="text" placeholder="Enter a title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="comment-content">
+        <label><b>Content</b></label>
+        <textarea rows="5" cols="60" placeholder="Enter a content..." [(ngModel)]="content" [ngModelOptions]="{standalone: true}"></textarea>
+      </div>
+      <button *ngIf="currentUser" type="submit" (click)="submit()">Comment</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="loaded" class="comments-container">
   <div class="comments-container-inner" *ngIf="comments">
 
     <ul class="comments" *ngFor="let comment of comments">
@@ -14,3 +30,5 @@
 
   </div>
 </div>
+
+<div *ngIf="!loaded">Comments are loading...</div>

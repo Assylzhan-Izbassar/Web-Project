@@ -10,22 +10,18 @@ import {UserService} from "../services/user.service";
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
-  currentUser?: User;
-  user_id?: number;
+
+  user?: User;
+  isCurrentUser?: User;
 
   constructor(private router: Router,
               private authService: AuthService,
               private userService: UserService) {
-    this.authService.currentUser.subscribe(x => this.currentUser = x);
+    this.user = this.userService.user!;
   }
 
   ngOnInit(): void {
-  }
-
-  getUser() {
-    this.userService.getUser().subscribe(user => {
-      this.user_id = user.id;
-    })
+    this.isCurrentUser = this.authService.currentUserValue;
   }
 
   logout() {

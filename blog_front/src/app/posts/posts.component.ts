@@ -5,6 +5,8 @@ import { ActivatedRoute } from "@angular/router";
 import { AuthService } from "../services/auth.service";
 import { UserService } from "../services/user.service";
 import { User } from "../models/user";
+import {Tag} from "../models/tag";
+import {TagService} from "../services/tag.service";
 
 @Component({
   selector: 'app-posts',
@@ -15,7 +17,10 @@ export class PostsComponent implements OnInit {
 
   // The list of posts
   posts?: Post[];
-  currentUser?: User;
+  currentUser: User;
+  // user: User;
+
+  myPosts: boolean = false;
 
   // Data that needed to create post
   title?: string;
@@ -24,14 +29,29 @@ export class PostsComponent implements OnInit {
   // For checking login
   logged?: boolean
 
+  // For tags
+  tags?: Tag[];
+
   constructor(private route: ActivatedRoute,
               private postService: PostService,
               private authService: AuthService,
-              private userService: UserService) {
+              private userService: UserService,
+              private tagServices: TagService) {
+    this.currentUser = authService.currentUserValue;
+    // this.user = userService.user
   }
 
   ngOnInit(): void {
     this.getPosts();
+    this.getTags();
+    this.userService.getUser().subscribe(data => {
+    });
+  }
+
+  getTags() {
+    this.tagServices.getTags().subscribe(data => {
+      this.tags = data;
+    });
   }
 
   getPosts() {
@@ -40,6 +60,7 @@ export class PostsComponent implements OnInit {
         this.posts = data;
       });
     } else {
+      this.myPosts = true;
       const id = Number(this.route.snapshot.paramMap.get('user_id'));
       this.postService.getUserPosts(id).subscribe(data => {
         this.posts = data;
@@ -61,10 +82,15 @@ export class PostsComponent implements OnInit {
 
   savePost() {
     this.cancel();
-    this.userService.getUser().subscribe(user => {
-      this.postService.createPost(this.title!, this.content!, user.id).subscribe(data => {
-        console.log(data);
-      })
+    this.postService.createPost(this.title!, this.content!, this.userService.user!.id).subscribe(data => {
+      this.title = "";
+      this.content = "";
     });
+    window.location.reload();
+  }
+
+  delete(id: number) {
+    this.postService.delete(id).subscribe();
+    window.location.reload();
   }
 }

@@ -7,9 +7,11 @@
 
 .main-content {
   /*background-color: bisque;*/
+  border: 1px solid rgb(5, 174, 253);
 }
 
 app-tags {
   /*background-color: coral;*/
   margin-left: 10px;
+  border: 1px solid rgb(5, 174, 253);
 }

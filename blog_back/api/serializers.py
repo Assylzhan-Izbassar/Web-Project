@@ -40,7 +40,7 @@ class PostSerializer(serializers.Serializer):
 class CommentSerializer(serializers.Serializer):
   id = serializers.IntegerField(read_only=True)
   title = serializers.CharField()
-  publishedAt = serializers.DateField()
+  publishedAt = serializers.DateTimeField()
   content = serializers.CharField()
   post_id = serializers.IntegerField()
 
